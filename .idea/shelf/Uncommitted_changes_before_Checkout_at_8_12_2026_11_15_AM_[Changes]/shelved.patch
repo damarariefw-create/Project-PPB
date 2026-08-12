@@ -1,0 +1,107 @@
+Index: app/src/main/java/com/example/projectppb/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.projectppb;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport androidx.activity.EdgeToEdge;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.graphics.Insets;\r\nimport androidx.core.view.ViewCompat;\r\nimport androidx.core.view.WindowInsetsCompat;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        EdgeToEdge.enable(this);\r\n        setContentView(R.layout.activity_main);\r\n        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {\r\n            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());\r\n            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);\r\n            return insets;\r\n        });\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/projectppb/MainActivity.java b/app/src/main/java/com/example/projectppb/MainActivity.java
+--- a/app/src/main/java/com/example/projectppb/MainActivity.java	(revision 8b09347c88102eb9f3a2a0c1f31313e33f464e78)
++++ b/app/src/main/java/com/example/projectppb/MainActivity.java	(date 1786508064800)
+@@ -1,6 +1,8 @@
+ package com.example.projectppb;
+ 
+ import android.os.Bundle;
++import android.widget.EditText;
++import android.widget.Toast;
+ 
+ import androidx.activity.EdgeToEdge;
+ import androidx.appcompat.app.AppCompatActivity;
+@@ -20,5 +22,9 @@
+             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+             return insets;
+         });
++        EditText phone = findViewById(R.id.phone);
++        public void submit(View view) {
++            Toast.makeText(this, "Nomor telepon: " + phone.getText(), Toast.LENGTH_SHORT).show();
++        }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:id=\"@+id/main\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:gravity=\"center_horizontal\"\r\n    android:orientation=\"vertical\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <EditText\r\n        android:id=\"@+id/editTextText\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:ems=\"10\"\r\n        android:inputType=\"text\"\r\n        android:text=\"Name\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/button\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Button\" />\r\n\r\n    <RadioGroup\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\">\r\n\r\n        <RadioButton\r\n            android:id=\"@+id/radioButton\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"RadioButton\"\r\n            tools:layout_editor_absoluteX=\"102dp\"\r\n            tools:layout_editor_absoluteY=\"276dp\" />\r\n\r\n        <RadioButton\r\n            android:id=\"@+id/radioButton2\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"RadioButton\"\r\n            tools:layout_editor_absoluteX=\"39dp\"\r\n            tools:layout_editor_absoluteY=\"178dp\" />\r\n    </RadioGroup>\r\n\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 8b09347c88102eb9f3a2a0c1f31313e33f464e78)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1786508056558)
+@@ -7,41 +7,51 @@
+     android:layout_height="match_parent"
+     android:gravity="center_horizontal"
+     android:orientation="vertical"
++    android:padding="20dp"
+     tools:context=".MainActivity">
+ 
+     <EditText
+-        android:id="@+id/editTextText"
+-        android:layout_width="wrap_content"
++        android:id="@+id/phone"
++        android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:ems="10"
+-        android:inputType="text"
+-        android:text="Name" />
+-
+-    <Button
+-        android:id="@+id/button"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="Button" />
++        android:hint="Nomor Telepon"
++        android:inputType="phone" />
+ 
+     <RadioGroup
+-        android:layout_width="wrap_content"
++        android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+ 
++        <RadioButton
++            android:id="@+id/radioButton2"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Telepon Pribadi"
++            tools:layout_editor_absoluteX="39dp"
++            tools:layout_editor_absoluteY="178dp" />
++
+         <RadioButton
+             android:id="@+id/radioButton"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="RadioButton"
++            android:text="Telopon Rumah"
+             tools:layout_editor_absoluteX="102dp"
+             tools:layout_editor_absoluteY="276dp" />
+ 
+         <RadioButton
+-            android:id="@+id/radioButton2"
++            android:id="@+id/radioButton3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="RadioButton"
++            android:text="Telopon Kantor"
+             tools:layout_editor_absoluteX="39dp"
+             tools:layout_editor_absoluteY="178dp" />
+     </RadioGroup>
+ 
++    <Button
++        android:id="@+id/button"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:onClick="submit"
++        android:text="Button" />
++
+ </LinearLayout>
+\ No newline at end of file
