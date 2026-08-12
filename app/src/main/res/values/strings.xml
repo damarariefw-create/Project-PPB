@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Project PPB</string>
+    <string name="toast">Toast</string>
+    <string name="greeting">Hello XI PPLG A</string>
+    <string name="number">0</string>
+    <string name="count">Count</string>
+    <string name="reset">Reset</string>
 </resources>
